@@ -30,8 +30,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-atchutchi-djangoblog-ach9i6pd86h.ws-eu105.gitpod.io']
-ALLOWED_HOSTS = ['django-blog-atchutchi-8c68eb498700.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['8000-atchutchi-djangoblog-ach9i6pd86h.ws-eu105.gitpod.io', 'django-blog-atchutchi-8c68eb498700.herokuapp.com', 'localhost']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-atchutchi-djangoblog-ach9i6pd86h.ws-eu105.gitpod.io/',
+]
 
 # Application definition
 
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'django_summernote',
     'blog',
 ]
 
@@ -134,7 +138,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaClodinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
